@@ -35,6 +35,7 @@ public class Lable extends JLabel{
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		g.drawImage(board, 0, 0,600,600, null);
+		g.drawImage(Main.ttest.get(0).bild,0,0,40,40,null);
 		
 		repaint();
 	}

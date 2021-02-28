@@ -3,8 +3,8 @@ public class Springer extends Figure{
 
 	public Springer(int[] position, int farbe) {
 		super(position, farbe);
-		FileName[0]="rsc/DameW.png";
-		FileName[1]="rsc/DameS.png";
+		FileName[0]="rsc/PferdW.png";
+		FileName[1]="rsc/PferdS.png";
 		initPic();
 	}
 

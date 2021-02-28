@@ -3,8 +3,8 @@ public class Koenig extends Figure{
 
 	public Koenig(int[] position, int farbe) {
 		super(position, farbe);
-		FileName[0]="rsc/DameW.png";
-		FileName[1]="rsc/DameS.png";
+		FileName[0]="rsc/KoenigW.png";
+		FileName[1]="rsc/KoenigS.png";
 		initPic();
 	}
 

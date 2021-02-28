@@ -17,7 +17,7 @@ public class MouseManager implements MouseListener{
 			//bewege nach validieren
 			//setze figurgew. wieder zurück
 		}
-		
+		System.out.println("("+ e.getX()+","+e.getY()+")");
 		
 	}
 

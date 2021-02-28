@@ -13,5 +13,8 @@ public class GUI  {
 	lbl1.setBounds(0,0,640,640);
 	
 	myframe.add(lbl1);
+	
+	
+	myframe.addMouseListener(new MouseManager());
 	}
 }

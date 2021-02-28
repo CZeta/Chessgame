@@ -7,23 +7,119 @@ public class Main {
 	System.out.println("HAllo Welt");
 	new GUI();
 	ttest=new ArrayList<>();
-	int[] test= {1,1};
-	int[] test2= {2,2};
-	int[] test3= {3,3};
-	int[] test4= {4,4};
-	int[] test5= {5,5};
-	int[] test6= {6,6};
 	
-	Turm t1=new Turm(test,1);
-	Dame d1=new Dame(test2,0);
-	Koenig k1=new Koenig(test3,1);
-	Springer p1=new Springer(test4,0);
-	Bauer b1=new Bauer(test5,1);
-	ttest.add(t1);
-	ttest.add(p1);
-	ttest.add(b1);
-	ttest.add(k1);
-	ttest.add(d1);
+	initWGame();
+	initSGame();
+	}
+	
+	public static void initWGame() {
+		int[][] white=new int[16][2];
+		for(int i=0;i<8;i++) {
+			
+			white[i][0]=i+1;
+			white[i][1]=8;
+		}
+		
+		
+		for(int i=0;i<8;i++) {
+			
+			white[i+8][0]=i+1;
+			white[i+8][1]=7;
+			
+		}
+
+		Bauer pw1=new Bauer(white[8],0);
+		Bauer pw2=new Bauer(white[9],0);
+		Bauer pw3=new Bauer(white[10],0);
+		Bauer pw4=new Bauer(white[11],0);
+		Bauer pw5=new Bauer(white[12],0);
+		Bauer pw6=new Bauer(white[13],0);
+		Bauer pw7=new Bauer(white[14],0);
+		Bauer pw8=new Bauer(white[15],0);
+		
+		
+		
+		Turm tw1=new Turm(white[0],0);
+		Turm tw2=new Turm(white[7],0);
+		Springer sw1=new Springer(white[1],0);
+		Springer sw2=new Springer(white[6],0);
+		Laeufer lw1=new Laeufer(white[2],0);
+		Laeufer lw2=new Laeufer(white[5],0);
+		Dame dw=new Dame(white[3],0);
+		Koenig kw=new Koenig(white[4],0);
+		ttest.add(tw1);
+		ttest.add(tw2);
+		ttest.add(sw1);
+		ttest.add(sw2);
+		ttest.add(lw1);
+		ttest.add(lw2);
+		ttest.add(dw);
+		ttest.add(kw);
+		ttest.add(pw8);
+		ttest.add(pw7);
+		ttest.add(pw6);
+		ttest.add(pw5);
+		ttest.add(pw4);
+		ttest.add(pw3);
+		ttest.add(pw2);
+		ttest.add(pw1);
+		
+		
+	}
+	
+	public static void initSGame() {
+		int[][] white=new int[16][2];
+		for(int i=0;i<8;i++) {
+			
+			white[i][0]=i+1;
+			white[i][1]=1;
+		}
+		
+		
+		for(int i=0;i<8;i++) {
+			
+			white[i+8][0]=i+1;
+			white[i+8][1]=2;
+			
+		}
+
+		Bauer pw1=new Bauer(white[8],1);
+		Bauer pw2=new Bauer(white[9],1);
+		Bauer pw3=new Bauer(white[10],1);
+		Bauer pw4=new Bauer(white[11],1);
+		Bauer pw5=new Bauer(white[12],1);
+		Bauer pw6=new Bauer(white[13],1);
+		Bauer pw7=new Bauer(white[14],1);
+		Bauer pw8=new Bauer(white[15],1);
+		
+		
+		
+		Turm tw1=new Turm(white[0],1);
+		Turm tw2=new Turm(white[7],1);
+		Springer sw1=new Springer(white[1],1);
+		Springer sw2=new Springer(white[6],1);
+		Laeufer lw1=new Laeufer(white[2],1);
+		Laeufer lw2=new Laeufer(white[5],1);
+		Dame dw=new Dame(white[3],1);
+		Koenig kw=new Koenig(white[4],1);
+		ttest.add(tw1);
+		ttest.add(tw2);
+		ttest.add(sw1);
+		ttest.add(sw2);
+		ttest.add(lw1);
+		ttest.add(lw2);
+		ttest.add(dw);
+		ttest.add(kw);
+		ttest.add(pw8);
+		ttest.add(pw7);
+		ttest.add(pw6);
+		ttest.add(pw5);
+		ttest.add(pw4);
+		ttest.add(pw3);
+		ttest.add(pw2);
+		ttest.add(pw1);
+		
+		
 	}
 
 }

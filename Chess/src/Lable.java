@@ -37,7 +37,7 @@ public class Lable extends JLabel{
 		g.drawImage(board, 0, 0,600,600, null);
 		
 		for(Figure next:Main.ttest) {
-		g.drawImage(next.bild,next.position[0]*40,next.position[1]*40+10,40,40,null);
+		g.drawImage(next.bild,next.position[0]*75-50,next.position[1]*75-50,40,40,null);
 		}
 		repaint();
 	}

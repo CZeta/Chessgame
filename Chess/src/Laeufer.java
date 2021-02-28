@@ -5,8 +5,8 @@ public class Laeufer extends Figure{
 	
 	public Laeufer(int[] position, int Farbe) {
 		super( position, Farbe);
-		FileName[0]="rsc/laeuferW.png";
-		FileName[1]="rsc/laeuferS.png";
+		FileName[0]="rsc/laeuferW.jpg";
+		FileName[1]="rsc/laeuferS.jpg";
 		initPic();
 	}
 

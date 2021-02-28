@@ -3,8 +3,8 @@ public class Bauer extends Figure{
 
 	public Bauer(int[] position, int farbe) {
 		super(position, farbe);
-		FileName[0]="rsc/BauerW.png";
-		FileName[1]="rsc/BauerS.png";
+		FileName[0]="rsc/BauerW.jpg";
+		FileName[1]="rsc/BauerS.jpg";
 		initPic();
 	}
 

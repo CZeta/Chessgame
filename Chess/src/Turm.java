@@ -3,8 +3,8 @@ public class Turm extends Figure{
 
 	public Turm(int[] position, int farbe) {
 		super(position, farbe);
-		FileName[0]="rsc/TurmW.png";
-		FileName[1]="rsc/TurmS.png";
+		FileName[0]="rsc/TurmW.jpg";
+		FileName[1]="rsc/TurmS.jpg";
 		initPic();
 	}
 

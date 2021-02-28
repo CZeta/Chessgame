@@ -3,8 +3,8 @@ public class Dame  extends Figure{
 
 	public Dame(int[] position, int farbe) {
 		super(position, farbe);
-		FileName[0]="rsc/DameW.png";
-		FileName[1]="rsc/DameS.png";
+		FileName[0]="rsc/DameW.jpg";
+		FileName[1]="rsc/DameS.jpg";
 		initPic();
 	}
 

@@ -18,6 +18,7 @@ public class MouseManager implements MouseListener{
 			//setze figurgew. wieder zurück
 		}
 		System.out.println("("+ e.getX()+","+e.getY()+")");
+		System.out.println("("+getKoordinates(e)[0]+","+getKoordinates(e)[1]);
 		
 	}
 
@@ -45,4 +46,10 @@ public class MouseManager implements MouseListener{
 		
 	}
 
+	public int[] getKoordinates(MouseEvent e) {
+		int[] newK=new int[2]; 
+		newK[0]= (int) ( ((e.getX()-8)-(e.getX()-8)%75)/75.0)+1;
+		newK[1]=(int) (((e.getY()-30)-(e.getY()-30)%75)/75.0)+1;
+		return newK;
+	}
 }

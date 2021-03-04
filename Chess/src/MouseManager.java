@@ -13,9 +13,14 @@ public class MouseManager implements MouseListener{
 			recentKey=getKey(e);
 			// suche die dazugehörige Figut
 			if(Main.figList.containsKey(recentKey)) {
+				if(Main.figList.get(recentKey).Farbe==AmZug) {
 			// wenn sie nicht gefunden wurde mach nichts weiter
 			//wenn doch figurgewaelt=true
-			figurgewaelt=true;
+					figurgewaelt=true;
+				}
+				else {
+					System.out.println("Du bist nicht am Zug!");
+				}
 			}
 		}
 		else {
@@ -30,6 +35,7 @@ public class MouseManager implements MouseListener{
 			
 			Main.figList.put(getKey(e), Main.figList.get(recentKey));
 			Main.figList.remove(recentKey);
+			AmZug=(AmZug+1)%2;
 			figurgewaelt=false;
 			}
 		}

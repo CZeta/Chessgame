@@ -11,19 +11,26 @@ public class MouseManager implements MouseListener{
 			// erkenne wo geklickt wurde
 			recentKey=getKey(e);
 			// suche die dazugehörige Figut
+			if(Main.figList.containsKey(recentKey)) {
 			// wenn sie nicht gefunden wurde mach nichts weiter
 			//wenn doch figurgewaelt=true
 			figurgewaelt=true;
+			}
 		}
 		else {
 			//erkenne wo geklicht wurde
 			//bewege nach validieren
 			//setze figurgew. wieder zurück
+			if(recentKey.equals(getKey(e))){
+				figurgewaelt=false;
+			}
+			else {
 			Main.figList.get(recentKey).position=getKoordinates(e);
 			
 			Main.figList.put(getKey(e), Main.figList.get(recentKey));
-			
+			Main.figList.remove(recentKey);
 			figurgewaelt=false;
+			}
 		}
 		System.out.println("("+ e.getX()+","+e.getY()+")");
 		System.out.println("("+getKoordinates(e)[0]+","+getKoordinates(e)[1]);

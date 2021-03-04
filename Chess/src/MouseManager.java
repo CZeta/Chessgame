@@ -27,8 +27,24 @@ public class MouseManager implements MouseListener{
 			//erkenne wo geklicht wurde
 			//bewege nach validieren
 			//setze figurgew. wieder zurück
-			if(recentKey.equals(getKey(e))){
-				figurgewaelt=false;
+			if(Main.figList.containsKey(getKey(e))) {
+				if(AmZug==Main.figList.get(getKey(e)).Farbe){
+					figurgewaelt=false;
+				}
+				else{
+					//hit
+					int[] ext={0,0};
+					Main.figList.get(getKey(e)).position= ext;
+					Main.figList.remove(getKey(e));
+					// muss auch aus ArryList entfernt werden...
+					Main.figList.get(recentKey).position=getKoordinates(e);
+					
+					Main.figList.put(getKey(e), Main.figList.get(recentKey));
+					Main.figList.remove(recentKey);
+					AmZug=(AmZug+1)%2;
+					figurgewaelt=false;
+					
+				}
 			}
 			else {
 			Main.figList.get(recentKey).position=getKoordinates(e);

@@ -28,34 +28,39 @@ public class MouseManager implements MouseListener{
 			//bewege nach validieren
 			if(Main.figList.get(recentKey).ValidMove(getKoordinates(e))) {
 				System.out.println("Hat er erkannt");
-			}
+			
 			//setze figurgew. wieder zurück
-			if(Main.figList.containsKey(getKey(e))) {
-				if(AmZug==Main.figList.get(getKey(e)).Farbe){
-					figurgewaelt=false;
-				}
-				else{
+				if(Main.figList.containsKey(getKey(e))) {
+					if(AmZug==Main.figList.get(getKey(e)).Farbe){
+						figurgewaelt=false;
+					}
+					else{
 					//hit
-					int[] ext={0,0};
-					Main.figList.get(getKey(e)).position= ext;
-					Main.figList.remove(getKey(e));
+						int[] ext={0,0};
+						Main.figList.get(getKey(e)).position= ext;
+						Main.figList.remove(getKey(e));
 					// muss auch aus ArryList entfernt werden...
-					Main.figList.get(recentKey).position=getKoordinates(e);
+						Main.figList.get(recentKey).position=getKoordinates(e);
 					
+						Main.figList.put(getKey(e), Main.figList.get(recentKey));
+						Main.figList.remove(recentKey);
+						AmZug=(AmZug+1)%2;
+						figurgewaelt=false;	
+					}
+				}
+		
+				else {
+					Main.figList.get(recentKey).position=getKoordinates(e);
+			
 					Main.figList.put(getKey(e), Main.figList.get(recentKey));
 					Main.figList.remove(recentKey);
 					AmZug=(AmZug+1)%2;
 					figurgewaelt=false;
-					
 				}
 			}
 			else {
-			Main.figList.get(recentKey).position=getKoordinates(e);
-			
-			Main.figList.put(getKey(e), Main.figList.get(recentKey));
-			Main.figList.remove(recentKey);
-			AmZug=(AmZug+1)%2;
-			figurgewaelt=false;
+				figurgewaelt=false;
+				System.out.println("Dieser Zug ist ungültig");
 			}
 		}
 		System.out.println("("+ e.getX()+","+e.getY()+")");

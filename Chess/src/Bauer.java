@@ -23,6 +23,7 @@ public class Bauer extends Figure{
 			firstMove=false;
 		}
 		
+		
 		return valid;
 	}
 

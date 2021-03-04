@@ -26,6 +26,9 @@ public class MouseManager implements MouseListener{
 		else {
 			//erkenne wo geklicht wurde
 			//bewege nach validieren
+			if(Main.figList.get(recentKey).ValidMove(getKoordinates(e))) {
+				System.out.println("Hat er erkannt");
+			}
 			//setze figurgew. wieder zurück
 			if(Main.figList.containsKey(getKey(e))) {
 				if(AmZug==Main.figList.get(getKey(e)).Farbe){

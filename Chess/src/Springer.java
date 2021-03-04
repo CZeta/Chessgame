@@ -10,8 +10,32 @@ public class Springer extends Figure{
 
 	@Override
 	public boolean ValidMove(int[] a) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean valid=false;
+		if(position[0]+2==a[0]&position[1]+1==a[1]) {
+			valid=true;
+		}
+		if(position[0]+2==a[0]&position[1]-1==a[1]) {
+			valid=true;
+		}
+		if(position[0]+1==a[0]&position[1]+2==a[1]) {
+			valid=true;
+		}
+		if(position[0]-1==a[0]&position[1]+2==a[1]) {
+			valid=true;
+		}
+		if(position[0]-2==a[0]&position[1]+1==a[1]) {
+			valid=true;
+		}
+		if(position[0]-2==a[0]&position[1]-1==a[1]) {
+			valid=true;
+		}
+		if(position[0]+1==a[0]&position[1]-2==a[1]) {
+			valid=true;
+		}
+		if(position[0]-1==a[0]&position[1]-2==a[1]) {
+			valid=true;
+		}
+		return valid;
 	}
 
 	@Override

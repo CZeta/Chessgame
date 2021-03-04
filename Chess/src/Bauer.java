@@ -22,7 +22,26 @@ public class Bauer extends Figure{
 			valid=true;
 			firstMove=false;
 		}
-		
+		if(position[0]+1==a[0]&position[1]+richtung==a[1]) {
+			if(Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {
+				if(Main.figList.get(Integer.toString(a[0])+","+Integer.toString(a[1])).Farbe!=MouseManager.AmZug) {
+					valid=true;
+					firstMove=false;
+				}
+			}
+			valid=true;
+			firstMove=false;
+		}
+		if(position[0]-1==a[0]&position[1]+richtung==a[1]) {
+			if(Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {
+				if(Main.figList.get(Integer.toString(a[0])+","+Integer.toString(a[1])).Farbe!=MouseManager.AmZug) {
+					valid=true;
+					firstMove=false;
+				}
+			}
+			valid=true;
+			firstMove=false;
+		}
 		
 		return valid;
 	}

@@ -4,7 +4,7 @@ import java.awt.event.MouseListener;
 public class MouseManager implements MouseListener{
 	boolean figurgewaelt=false;
 	String recentKey;
-	int AmZug=0;
+	static int AmZug=0;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

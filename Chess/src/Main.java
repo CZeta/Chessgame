@@ -1,15 +1,22 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 	static ArrayList<Figure> ttest;
+	static Map<String,Figure> figList;
 	public static void main(String[] args) {
 		//hashmap anlegen, figuren schlüssel ist die Poition, + object figur 
 	System.out.println("HAllo Welt");
 	new GUI();
 	ttest=new ArrayList<>();
-	
+	figList=new HashMap<>();
 	initWGame();
 	initSGame();
+	
+	
+	
+	System.out.println(figList.get("1,1").FileName[0]);
 	}
 	
 	public static void initWGame() {
@@ -63,6 +70,8 @@ public class Main {
 		ttest.add(pw3);
 		ttest.add(pw2);
 		ttest.add(pw1);
+		
+		
 		
 		
 	}

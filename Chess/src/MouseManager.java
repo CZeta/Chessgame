@@ -3,19 +3,27 @@ import java.awt.event.MouseListener;
 
 public class MouseManager implements MouseListener{
 	boolean figurgewaelt=false;
+	String recentKey;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(!figurgewaelt) {
 			// erkenne wo geklickt wurde
+			recentKey=getKey(e);
 			// suche die dazugehörige Figut
 			// wenn sie nicht gefunden wurde mach nichts weiter
 			//wenn doch figurgewaelt=true
+			figurgewaelt=true;
 		}
 		else {
 			//erkenne wo geklicht wurde
 			//bewege nach validieren
 			//setze figurgew. wieder zurück
+			Main.figList.get(recentKey).position=getKoordinates(e);
+			
+			Main.figList.put(getKey(e), Main.figList.get(recentKey));
+			
+			figurgewaelt=false;
 		}
 		System.out.println("("+ e.getX()+","+e.getY()+")");
 		System.out.println("("+getKoordinates(e)[0]+","+getKoordinates(e)[1]);
@@ -51,5 +59,8 @@ public class MouseManager implements MouseListener{
 		newK[0]= (int) ( ((e.getX()-8)-(e.getX()-8)%75)/75.0)+1;
 		newK[1]=(int) (((e.getY()-30)-(e.getY()-30)%75)/75.0)+1;
 		return newK;
+	}
+	public String getKey(MouseEvent e) {
+		return Integer.toString(getKoordinates(e)[0])+","+Integer.toString(getKoordinates(e)[1]);
 	}
 }

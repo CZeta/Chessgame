@@ -15,6 +15,7 @@ public abstract class Figure {
 	public Figure(int[] position, int farbe) {
 		this.position=position;
 		this.Farbe=farbe;
+		Main.figList.put(Integer.toString(position[0])+","+Integer.toString(position[1]), this);
 		
 	}
 	

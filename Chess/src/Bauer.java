@@ -19,19 +19,25 @@ public class Bauer extends Figure{
 		boolean valid=false;
 		if(position[0]==a[0]&position[1]+richtung==a[1]) {
 			//abfragen ob hier etwas steht, sonst schlägt er frontal
-			
-			valid=true;
-			firstMove=false;
-			if(a[1]==7*(Farbe)+1) {
-				System.out.println("You get a Queen!");
-				Eingabe=in.nextLine();
-				verwandlung(Eingabe,a);
+			if(!Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {
 				
+			
+			
+				valid=true;
+				firstMove=false;
+				if(a[1]==7*(Farbe)+1) {
+					System.out.println("You get a Queen!");
+					Eingabe=in.nextLine();
+					verwandlung(Eingabe,a);
+				
+				}
 			}
 		}
 		if(position[0]==a[0]&position[1]+2*richtung==a[1]&firstMove) {
-			valid=true;
-			firstMove=false;
+			if(!Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {
+				valid=true;
+				firstMove=false;
+			}
 		}
 		if(position[0]+1==a[0]&position[1]+richtung==a[1]) {
 			if(Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {

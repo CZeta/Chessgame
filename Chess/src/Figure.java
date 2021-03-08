@@ -10,7 +10,7 @@ public abstract class Figure {
 	int Farbe;
 	BufferedImage bild;
 	String[] FileName=new String[2];
-	
+	Boolean isKing=false;
 	
 	public Figure(int[] position, int farbe) {
 		this.position=position;

@@ -6,6 +6,7 @@ public class Bauer extends Figure{
 
 	public Bauer(int[] position, int farbe) {
 		super(position, farbe);
+		isKing=false;
 		richtung=farbe*2-1;
 		FileName[0]="rsc/BauerW.jpg";
 		FileName[1]="rsc/BauerS.jpg";

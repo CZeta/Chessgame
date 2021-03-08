@@ -3,6 +3,7 @@ public class Koenig extends Figure{
 
 	public Koenig(int[] position, int farbe) {
 		super(position, farbe);
+		isKing=true;
 		FileName[0]="rsc/KoenigW.jpg";
 		FileName[1]="rsc/KoenigS.jpg";
 		initPic();
@@ -11,71 +12,60 @@ public class Koenig extends Figure{
 	@Override
 	public boolean ValidMove(int[] a) {
 		boolean valid=false;
-		for(int i=1;i<8;i++) {
+		int i=1;
+		if(!InCheck(a)) {
 			if(position[0]+i==a[0]&position[1]+i==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0]+i)+","+Integer.toString(position[1]+i))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
+			
 			if(position[0]-i==a[0]&position[1]-i==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0]-i)+","+Integer.toString(position[1]-i))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
+			
 			if(position[0]+i==a[0]&position[1]-i==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0]+i)+","+Integer.toString(position[1]-i))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
+			
 			if(position[0]-i==a[0]&position[1]+i==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0]-i)+","+Integer.toString(position[1]+i))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
+			
 			if(position[0]+i==a[0]&position[1]==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0]+i)+","+Integer.toString(position[1]))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
 			if(position[0]-i==a[0]&position[1]==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0]-i)+","+Integer.toString(position[1]))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
+			
 			if(position[0]==a[0]&position[1]+i==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0])+","+Integer.toString(position[1]+i))) {
-				break;
-			}
-		}
-		for(int i=1;i<8;i++) {
+			
 			if(position[0]==a[0]&position[1]-i==a[1]) {
 				valid=true;
 			}
-			else if(Main.figList.containsKey(Integer.toString(position[0])+","+Integer.toString(position[1]-i))) {
-				break;
-			}
+			
 		}
 		return valid;
+	}
+
+	
+	public boolean InCheck(int[] a) {
+		boolean InCheck=false;
+		for(Figure next: Main.ttest) {
+			if(next.Farbe!=Farbe) {
+				//König darf sich nicht selbst aufrufen!
+				if(!next.isKing) {
+					if(next.ValidMove(a)) {
+						System.out.println(next.FileName[next.Farbe]);
+						InCheck=true;
+						System.out.println("Du darfst nicht ins Schach ziehen!");
+				
+					}
+				}
+			}
+		}
+		return InCheck;
 	}
 
 	@Override

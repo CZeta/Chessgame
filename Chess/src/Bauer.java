@@ -35,6 +35,13 @@ public class Bauer extends Figure{
 		}
 		if(position[0]==a[0]&position[1]+2*richtung==a[1]&firstMove) {
 			if(!Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {
+				
+				//creating a passed pawn to take
+				int[] b= {a[0],position[1]+richtung};
+				//String PassPosi=Integer.toString(b[0])+","+Integer.toString(b[1]);
+				//EnPassPawn p9=new EnPassPawn(b,Farbe);
+				Main.passedPawn[Farbe].position=b;
+				
 				valid=true;
 				firstMove=false;
 			}
@@ -52,7 +59,13 @@ public class Bauer extends Figure{
 					}
 				}
 			}
-			
+			else if(Main.passedPawn[(Farbe+1)%2].position[0]==a[0]&Main.passedPawn[(Farbe+1)%2].position[1]==a[1]) {		
+				int[] b= {0,0};
+				Main.passedPawn[(Farbe+1)%2].position=b;
+				valid=true;
+				firstMove=false;
+				
+			}
 		}
 		if(position[0]-1==a[0]&position[1]+richtung==a[1]) {
 			if(Main.figList.containsKey(Integer.toString(a[0])+","+Integer.toString(a[1]))) {
@@ -68,7 +81,13 @@ public class Bauer extends Figure{
 				}
 			}
 			
-			
+			else if(Main.passedPawn[(Farbe+1)%2].position[0]==a[0]&Main.passedPawn[(Farbe+1)%2].position[1]==a[1]) {		
+				int[] b= {0,0};
+				Main.passedPawn[(Farbe+1)%2].position=b;
+				valid=true;
+				firstMove=false;
+				
+			}
 		}
 		
 		return valid;

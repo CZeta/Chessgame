@@ -8,6 +8,10 @@ public class MouseManager implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
+		Main.passedPawn[AmZug].position[0]=0;
+		Main.passedPawn[AmZug].position[1]=0;
+		
 		if(!figurgewaelt) {
 			// erkenne wo geklickt wurde
 			recentKey=getKey(e);

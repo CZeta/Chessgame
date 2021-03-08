@@ -5,6 +5,7 @@ import java.util.Map;
 public class Main {
 	static ArrayList<Figure> ttest;
 	static Map<String,Figure> figList;
+	static EnPassPawn[] passedPawn=new EnPassPawn[2];
 	public static void main(String[] args) {
 		//hashmap anlegen, figuren schlüssel ist die Poition, + object figur 
 	System.out.println("HAllo Welt");
@@ -14,6 +15,9 @@ public class Main {
 	initWGame();
 	initSGame();
 	
+	int[] pos= {0,0};
+	passedPawn[0]=new EnPassPawn(pos,0);
+	passedPawn[1]=new EnPassPawn(pos,1);
 	
 	
 	System.out.println(figList.get("1,1").FileName[0]);

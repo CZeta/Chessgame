@@ -59,7 +59,10 @@ public class Bauer extends Figure{
 					}
 				}
 			}
-			else if(Main.passedPawn[(Farbe+1)%2].position[0]==a[0]&Main.passedPawn[(Farbe+1)%2].position[1]==a[1]) {		
+			else if(Main.passedPawn[(Farbe+1)%2].position[0]==a[0]&Main.passedPawn[(Farbe+1)%2].position[1]==a[1]) {
+				int[] ext={0,0};
+				Main.figList.get(Integer.toString(position[0]+1)+","+Integer.toString(position[1])).position=ext;
+				Main.figList.remove(Integer.toString(position[0]+1)+","+Integer.toString(position[1]));
 				int[] b= {0,0};
 				Main.passedPawn[(Farbe+1)%2].position=b;
 				valid=true;
@@ -81,7 +84,10 @@ public class Bauer extends Figure{
 				}
 			}
 			
-			else if(Main.passedPawn[(Farbe+1)%2].position[0]==a[0]&Main.passedPawn[(Farbe+1)%2].position[1]==a[1]) {		
+			else if(Main.passedPawn[(Farbe+1)%2].position[0]==a[0]&Main.passedPawn[(Farbe+1)%2].position[1]==a[1]) {
+				int[] ext={0,0};
+				Main.figList.get(Integer.toString(position[0]-1)+","+Integer.toString(position[1])).position=ext;
+				Main.figList.remove(Integer.toString(position[0]-1)+","+Integer.toString(position[1]));
 				int[] b= {0,0};
 				Main.passedPawn[(Farbe+1)%2].position=b;
 				valid=true;

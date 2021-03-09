@@ -41,6 +41,20 @@ public class MouseManager implements MouseListener{
 					else{
 					//hit
 						int[] ext={0,0};
+						//probehalber bewegte figur umsetzen, könig auf schach testen, falls ja restore...
+							int[]savebew=new int[2];
+							savebew[0]=Main.figList.get(recentKey).position[0];
+							savebew[1]=Main.figList.get(recentKey).position[1];
+							Figure mover= Main.figList.get(recentKey);
+							Figure hit= Main.figList.get(getKey(e));
+							int[]savehit=new int[2];
+							savehit[0]=Main.figList.get(getKey(e)).position[0];
+							savehit[1]=Main.figList.get(getKey(e)).position[1];
+							
+							Main.figList.get(recentKey).position=ext;
+							//king.incheck?
+							
+							
 						Main.figList.get(getKey(e)).position= ext;
 						Main.figList.remove(getKey(e));
 					// muss auch aus ArryList entfernt werden...
@@ -48,18 +62,50 @@ public class MouseManager implements MouseListener{
 					
 						Main.figList.put(getKey(e), Main.figList.get(recentKey));
 						Main.figList.remove(recentKey);
+						
+						
+						if(Main.kingList[AmZug].InCheck(Main.kingList[AmZug].position)){
+							System.out.println("jetzt hast du dich selbst ins schach gesetzt");
+							//zug zurücksetzten
+							Main.figList.get(getKey(e)).position=savebew;
+							Main.figList.put(recentKey,Main.figList.get(getKey(e)));
+							Main.figList.remove(getKey(e));
+							
+							Main.figList.put(getKey(e), hit);
+							Main.ttest.add(hit);
+							figurgewaelt=false;
+							
+						}
+						else {
 						AmZug=(AmZug+1)%2;
 						figurgewaelt=false;	
+						}
 					}
 				}
 		
 				else {
+					//fertige kopie an
+					int[] mover=new int[2];
+					 mover[0]= Main.figList.get(recentKey).position[0];
+					 mover[1]= Main.figList.get(recentKey).position[1];
+					
 					Main.figList.get(recentKey).position=getKoordinates(e);
 			
 					Main.figList.put(getKey(e), Main.figList.get(recentKey));
 					Main.figList.remove(recentKey);
+					
+					if(Main.kingList[AmZug].InCheck(Main.kingList[AmZug].position)){
+						System.out.println("jetzt hast du dich selbst ins schach gesetzt");
+						//remove
+						Main.figList.get(getKey(e)).position=mover;
+						Main.figList.put(recentKey,Main.figList.get(getKey(e)));
+						Main.figList.remove(getKey(e));
+						figurgewaelt=false;
+					}
+					else {
 					AmZug=(AmZug+1)%2;
 					figurgewaelt=false;
+					}
 				}
 			}
 			else {

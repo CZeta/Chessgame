@@ -4,6 +4,7 @@ public class Koenig extends Figure{
 	public Koenig(int[] position, int farbe) {
 		super(position, farbe);
 		isKing=true;
+		Main.kingList[Farbe]=this;
 		FileName[0]="rsc/KoenigW.jpg";
 		FileName[1]="rsc/KoenigS.jpg";
 		initPic();
@@ -13,7 +14,7 @@ public class Koenig extends Figure{
 	public boolean ValidMove(int[] a) {
 		boolean valid=false;
 		int i=1;
-		if(!InCheck(a)) {
+		//if(!InCheck(a)) {
 			if(position[0]+i==a[0]&position[1]+i==a[1]) {
 				valid=true;
 			}
@@ -45,7 +46,7 @@ public class Koenig extends Figure{
 				valid=true;
 			}
 			
-		}
+		//}
 		return valid;
 	}
 

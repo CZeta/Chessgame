@@ -6,6 +6,7 @@ public class Main {
 	static ArrayList<Figure> ttest;
 	static Map<String,Figure> figList;
 	static EnPassPawn[] passedPawn=new EnPassPawn[2];
+	static Koenig[] kingList=new Koenig[2];
 	public static void main(String[] args) {
 		//hashmap anlegen, figuren schlüssel ist die Poition, + object figur 
 	System.out.println("HAllo Welt");
